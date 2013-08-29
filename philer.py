@@ -36,13 +36,13 @@ def main():
 	prescriber_list = "prescribers.txt"
 	
 	# Open file to write to
-	phile = open('PHIle_output.txt', 'w')
+	phile = open('PHIle_output.txt', 'a')
 	
 	#set iterator count
 	i = 0
 
 	#CHANGE THIS to update total count
-	top_count = 50000000	
+	top_count = 1000	
 
 	#import all lists to memory
 	first_name_memlist = open(first_name_list).read().splitlines()
@@ -50,7 +50,14 @@ def main():
 	addr_memlist = open(address_list).read().splitlines()
 	drug_name_memlist = open(drug_name_list).read().splitlines()
 	print "Lists read into memory..."
-	
+
+	phile.write("===============================================\n")
+	phile.write(" NOTICE: THIS IS NOT REAL PHI	            \n")
+	phile.write(" This is randomly-generated data designed to   \n")
+	phile.write(" mimic the look of PHI for security testing    \n")
+	phile.write("===============================================\n")
+	phile.write("\n\n")
+
 	while i <= top_count:
 		first_name = random.choice(first_name_memlist)
 		middle_i = middle_initial()
@@ -61,7 +68,6 @@ def main():
 		i=i+1
 		phile.write(first_name + " " + middle_i + " " + last_name + "\t" + dob + "\t" + address + "\t" + drug_name + "\n")
 
-	
 	
 if __name__ == '__main__':
 	main()
